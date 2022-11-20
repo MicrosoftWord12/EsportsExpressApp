@@ -1,8 +1,12 @@
-<div class="card" style="width: 18rem; margin: 15px;">
+<div class="card ms-3" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title"><%= countryTitle %> </h5>
-        <p class="card-text"><%= lastUpdate %>></p>
-        <p class="card-text"> <%= countryId %></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">Game Title: <%= NameOrTitle %> </h5>
+        <p class="card-subtitle">Game ID: <%= game_id %></p>
+        <p class="card-text">Game Duration: <%= duration %>></p>
+        <p class="card-text">Game Team Size: <%= teamSize %></p>
+
+        <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
+        <a href="#" class="btn btn-primary">Players</a>
+        <a href="#" class="btn btn-primary">Edit Game</a>
     </div>
 </div>

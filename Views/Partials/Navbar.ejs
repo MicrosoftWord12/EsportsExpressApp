@@ -2,13 +2,13 @@
     <div class="collapse navbar-collapse" id="navbarsExample03">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#"><%= homePageTitle %><span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/"><%= nav.homePageTitle %></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/<%= navLinkOneHref %>"><%= navLinkTitleOne %></a>
+                <a class="nav-link" href="<%= nav.navLinkOneHref %>"><%= nav.navLinkTitleOne %></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<%= navLinkTwoHref %>"><%= navLinkTitleTwo %></a>
+                <a class="nav-link" href="<%= nav.navLinkTwoHref %>"><%= nav.navLinkTitleTwo %></a>
             </li>
         </ul>
     </div>
