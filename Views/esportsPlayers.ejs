@@ -3,5 +3,25 @@
 <%- include("./Partials/Head.ejs") %> 
 <body>
     <%- include("./Partials/Navbar.ejs") %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <% player.forEach(playerObj => { %>
+                <div class="card" style="margin: 8px; width: 15rem;">
+                     <div class="card-body">
+                     <h5 class="card-title">Player Name: <%= playerObj.name %></h5>
+                     <p class="card-text">Player ID: <%= playerObj.player_id %></p>
+                     <p class="card-text">Player Email: <%= playerObj.email %></p>
+                
+                     <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
+                     <a href="/esports-players/view/" class="btn btn-primary">Players</a>
+                     <a href="/esports-players/edit/<%= playerObj.player_id %>/" class="btn btn-primary">Edit Player</a>
+                     </div>
+                </div>
+         <% }) %>
+        </div>
+    </div>
+
+
 </body>
 </html>

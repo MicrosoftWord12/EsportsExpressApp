@@ -4,24 +4,22 @@
 <body>
     <%- include("./Partials/Navbar.ejs"); %>
 
-   <%# for( let index = 0; index < DBResult.length; index++ ) { %>
-        <%#- include("./Partials/Cards.ejs"); %>
-   <%# } %>
-
-   <% game.forEach(test => { %>
-          <div class="card ms-3" style="width: 18rem;">
-               <div class="card-body">
-               <h5 class="card-title">Game Title: <%= test.name %></h5>
-               <p class="card-text">Game Duration: <%= test.duration %></p>
-               <p class="card-text">Game Team Size: <%= test.teamSize %></p>
-               <p class="card-text">Game ID: <%= test.game_id %></p>
-          
-               <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
-               <a href="#" class="btn btn-primary">Players</a>
-               <a href="#" class="btn btn-primary">Edit Game</a>
+   <div class="container">
+        <% game.forEach(element => { %>
+               <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Game Title: <%= element.name %></h5>
+                    <p class="card-text">Game Duration: <%= element.duration %></p>
+                    <p class="card-text">Game Team Size: <%= element.teamSize %></p>
+                    <p class="card-text">Game ID: <%= element.game_id %></p>
+               
+                    <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
+                    <a href="#" class="btn btn-primary">Players</a>
+                    <a href="#" class="btn btn-primary">Edit Game</a>
+                    </div>
                </div>
-          </div>
-   <% }) %>
+        <% }) %>
+   </div>
 
 </body>
 </html>
