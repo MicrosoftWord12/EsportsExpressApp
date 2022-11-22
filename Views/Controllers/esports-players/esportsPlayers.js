@@ -1,19 +1,21 @@
-const NavbarUtilityFiller = require('../../../Utils/NavbarUtilFiller');
-const selectPlayers = require('../../../DB/Scripts/SelectPlayers');
+const NavbarUtilityFiller = require("../../../Utils/NavbarUtilFiller");
+const FooterUtilFiller = require("../../../Utils/FooterUtilFiller");
+const selectPlayers = require("../../../DB/Scripts/SelectPlayers");
 /**
  *
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
 module.exports = {
-    url: '/esports-players',
-    method: 'GET',
+    url: "/esports-players",
+    method: "GET",
 
     async execute(req, res) {
         selectPlayers().then((result) => {
-            res.render('esportsPlayers', {
-                title: 'Esports Players',
+            res.render("esport-player-views/esportsPlayers", {
+                title: "Esports Players",
                 nav: NavbarUtilityFiller().page,
+                page: FooterUtilFiller(`esports-players/add/`, this.method, "Add Player").page,
                 player: result,
                 DBResult: result,
             });

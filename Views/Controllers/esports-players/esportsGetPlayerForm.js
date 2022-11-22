@@ -1,11 +1,11 @@
-const NavbarUtilFiller = require('../../../Utils/NavbarUtilFiller');
+const NavbarUtilFiller = require("../../../Utils/NavbarUtilFiller");
 
 module.exports = {
-    url: '/esports-players/edit/:id',
-    method: 'GET',
+    url: "/esports-players/edit/:id",
+    method: "GET",
 
     async execute(req, res) {
-        res.render('esportsEditPlayer', {
+        res.render("esport-player-views/esportsEditPlayer", {
             nav: NavbarUtilFiller().page,
             id: req.params.id,
         });

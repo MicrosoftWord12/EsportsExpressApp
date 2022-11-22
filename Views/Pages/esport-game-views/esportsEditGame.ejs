@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../Partials/Head.ejs"); %>
+<body>
+    <%- include("../Partials/Navbar.ejs"); %>
+    <form action="/esports-games/edit/<% id %>" method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Game Name</label>
+            <input name="gameName" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Game Duration</label>
+            <input name="gameDuration" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Game Team Size</label>
+            <input name="gameTeamSize" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../Partials/Head.ejs") %> 
+<body>
+    <%- include("../Partials/Navbar.ejs") %>
+
+    <div class="container-fluid">
+        <div class="row">
+            <% player.forEach(playerObj => { %>
+                <div class="card" style="margin: 8px; width: 15rem;">
+                     <div class="card-body">
+                        <h5 class="card-title">Player Name: <%= playerObj.name %></h5>
+                        <p class="card-text">Player ID: <%= playerObj.player_id %></p>
+                        <p class="card-text">Player Email: <%= playerObj.email %></p>
+                    
+                        <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
+                        <div class="d-flex justify-content-around">
+                            <form action="/esports-players/remove/<%= playerObj.player_id %>" method="post">
+                                <button type="submit" class="btn btn-primary mr-3">Delete</button>
+                            </form>
+                            <a href="/esports-players/edit/<%= playerObj.player_id %>/" class="btn btn-primary mr-3">Edit </a>
+                        </div>
+                     </div>
+                </div>
+         <% }) %>
+        </div>
+    </div>
+
+    <%- include("../Partials/Footer.ejs") %>
+
+</body>
+</html>

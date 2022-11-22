@@ -1,7 +1,7 @@
-const AlterPlayer = require("../../../DB/Scripts/AlterPlayer");
+const DeletePlayer = require("../../../DB/Scripts/DeletePlayer");
 
 module.exports = {
-    url: "/esports-players/edit/:id",
+    url: "/esports-players/remove/:id",
     method: "POST",
 
     /**
@@ -12,7 +12,7 @@ module.exports = {
     async execute(req, res) {
         console.log(req.body);
 
-        AlterPlayer(req.body, req.params.id).then((result) => {
+        DeletePlayer(req.params.id).then((result) => {
             console.log(result);
             res.redirect(301, "/esports-players");
         });
