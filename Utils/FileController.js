@@ -1,25 +1,29 @@
-const fs = require("fs");
-const path = require("path");
-const ServerMessage = require("../Utils/ServerMessage");
-const ServerError = require("../Utils/ServerErrorMessage");
+const fs = require('fs');
+const path = require('path');
+const ServerMessage = require('../Utils/ServerMessage');
+const ServerError = require('../Utils/ServerErrorMessage');
 
 module.exports = (app) => {
     // Gets folders in controller folder
-    const controllersNotInFolder = fs.readdirSync(path.join(__dirname, "../Views/Controllers"));
+    const controllersNotInFolder = fs.readdirSync(path.join(__dirname, '../Views/Controllers'));
 
-    for (const folder of controllersNotInFolder) {
-        const controllerFile = fs.readdirSync(path.join(__dirname, `../Views/Controllers/${folder}`)).filter((file) => file.endsWith(".js"));
+    for (const controllerfolder of controllersNotInFolder) {
+        const controllerMethodFolder = fs.readdirSync(path.join(__dirname, `../Views/Controllers/${controllerfolder}`));
 
-        console.log(ServerMessage(`Loading [${folder}]: ${controllerFile} `));
+        for (const folder of controllerMethodFolder) {
+            const controllerFile = fs.readdirSync(path.join(__dirname, `../Views/Controllers/${controllerfolder}/${folder}`)).filter((file) => file.endsWith('.js'));
 
-        for (const file of controllerFile) {
-            const controller = require(`../Views/Controllers/${folder}/${file}`);
-            // TODO: Add support for multiple controllers in one file
-            if (controller.execute && controller.url && controller.method) {
-                if (controller.validate) {
-                    runControllers(app, controller, true);
-                } else {
-                    runControllers(app, controller, false);
+            console.log(ServerMessage(`Loading [${controllerfolder}]/[${folder}]: ${controllerFile} `));
+
+            for (const file of controllerFile) {
+                const controller = require(`../Views/Controllers/${controllerfolder}/${folder}/${file}`);
+                // TODO: Add support for multiple controllers in one file
+                if (controller.execute && controller.url && controller.method) {
+                    if (controller.validate) {
+                        runControllers(app, controller, true);
+                    } else {
+                        runControllers(app, controller, false);
+                    }
                 }
             }
         }
@@ -27,17 +31,17 @@ module.exports = (app) => {
 };
 
 function runControllers(app, controller, hasValidation) {
-    if (typeof controller === "undefined") return;
+    if (typeof controller === 'undefined') return;
     if (hasValidation) {
         switch (controller.method) {
-            case "GET":
+            case 'GET':
                 app.get(controller.url, [controller.validate, controller.execute]);
                 break;
-            case "POST":
+            case 'POST':
                 app.post(controller.url, [controller.validate, controller.execute]);
                 break;
 
-            case "PUT":
+            case 'PUT':
                 app.put(controller.url, [controller.validate, controller.execute]);
                 break;
 
@@ -47,14 +51,14 @@ function runControllers(app, controller, hasValidation) {
         }
     } else {
         switch (controller.method) {
-            case "GET":
+            case 'GET':
                 app.get(controller.url, controller.execute);
                 break;
-            case "POST":
+            case 'POST':
                 app.post(controller.url, controller.execute);
                 break;
 
-            case "PUT":
+            case 'PUT':
                 app.put(controller.url, controller.execute);
                 break;
 
