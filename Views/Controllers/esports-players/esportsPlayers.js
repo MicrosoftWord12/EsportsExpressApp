@@ -1,15 +1,16 @@
 const NavbarUtilityFiller = require("../../../Utils/NavbarUtilFiller");
 const FooterUtilFiller = require("../../../Utils/FooterUtilFiller");
 const selectPlayers = require("../../../DB/Scripts/SelectPlayers");
-/**
- *
- * @param {import("express").Request} req
- * @param {import("express").Response} res
- */
+
 module.exports = {
     url: "/esports-players",
     method: "GET",
 
+    /**
+     *
+     * @param {import("express").Request} req
+     * @param {import("express").Response} res
+     */
     async execute(req, res) {
         selectPlayers().then((result) => {
             res.render("esport-player-views/esportsPlayers", {

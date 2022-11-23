@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const ServerMessage = require("../Utils/ServerMessage");
+const ServerError = require("../Utils/ServerErrorMessage");
 
 module.exports = (app) => {
     // Gets folders in controller folder
@@ -13,27 +14,53 @@ module.exports = (app) => {
 
         for (const file of controllerFile) {
             const controller = require(`../Views/Controllers/${folder}/${file}`);
-            runControllers(app, controller);
+            // TODO: Add support for multiple controllers in one file
+            if (controller.execute && controller.url && controller.method) {
+                if (controller.validate) {
+                    runControllers(app, controller, true);
+                } else {
+                    runControllers(app, controller, false);
+                }
+            }
         }
     }
 };
 
-function runControllers(app, controller) {
+function runControllers(app, controller, hasValidation) {
     if (typeof controller === "undefined") return;
-    switch (controller.method) {
-        case "GET":
-            app.get(controller.url, controller.execute);
-            break;
-        case "POST":
-            app.post(controller.url, controller.execute);
-            break;
+    if (hasValidation) {
+        switch (controller.method) {
+            case "GET":
+                app.get(controller.url, [controller.validate, controller.execute]);
+                break;
+            case "POST":
+                app.post(controller.url, [controller.validate, controller.execute]);
+                break;
 
-        case "PUT":
-            app.put(controller.url, controller.execute);
-            break;
+            case "PUT":
+                app.put(controller.url, [controller.validate, controller.execute]);
+                break;
 
-        default:
-            app.all(controller.url, controller.execute);
-            break;
+            default:
+                app.all(controller.url, [controller.validate, controller.execute]);
+                break;
+        }
+    } else {
+        switch (controller.method) {
+            case "GET":
+                app.get(controller.url, controller.execute);
+                break;
+            case "POST":
+                app.post(controller.url, controller.execute);
+                break;
+
+            case "PUT":
+                app.put(controller.url, controller.execute);
+                break;
+
+            default:
+                app.all(controller.url, controller.execute);
+                break;
+        }
     }
 }

@@ -1,3 +1,4 @@
+const insertPlayer = require("../../../DB/Scripts/InsertPlayers");
 module.exports = {
     url: "/esports-players/add",
     method: "POST",
@@ -8,6 +9,8 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        console.log(req.body);
+        insertPlayer(req.body).then((result) => {
+            res.redirect(301, "/esports-players");
+        });
     },
 };
