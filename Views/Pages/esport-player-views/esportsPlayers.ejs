@@ -7,25 +7,52 @@
     <div class="container-fluid">
         <div class="row">
             <% player.forEach(playerObj => { %>
-                <div class="card" style="margin: 8px; width: 15rem;">
-                     <div class="card-body">
-                        <h5 class="card-title">Player Name: <%= playerObj.name %></h5>
+                <div class="card" style="margin: 12px; width: 20rem; height: 20rem;">
+                    <div class="card-body d-flex flex-column">
+                        <div class="card-header text-center" style="margin-bottom: 15px;">
+                            <h5 class="card-title ">Player Name: <%= playerObj.name %></h5>
+                        </div>
                         <p class="card-text">Player ID: <%= playerObj.player_id %></p>
                         <p class="card-text">Player Email: <%= playerObj.email %></p>
+                
                         <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
-                        <div class="d-flex justify-content-around">
-                            <form action="/esports-players/remove/<%= playerObj.player_id %>" method="post">
-                                <button type="submit" class="btn btn-primary mr-3">Delete</button>
-                            </form>
-                            <a href="/esports-players/edit/<%= playerObj.player_id %>/" class="btn btn-primary mr-3">Edit </a>
-                        </div>
-                     </div>
+                        <form action="/esports-players/remove/<%= playerObj.player_id %>" method="post">
+                            <button type="submit" class="btn btn-lg btn-block btn-primary mt-auto" style="margin-bottom: 15px;">Delete</button>
+                        </form>
+                        <form action="/esports-players/edit/<%= playerObj.player_id %>/" method="get">
+                            <button type="submit" class="btn btn-lg btn-block btn-primary mt-auto">Edit</button>
+                        </form>
+                        <!-- <a href="#" class="btn btn-lg btn-block btn-primary mt-auto">Edit Game</a> -->
+                        <!-- <a href="#" class="btn btn-lg btn-block btn-primary mt-auto">Remove Game</a> -->
+                    </div>
                 </div>
          <% }) %>
         </div>
     </div>
 
-    <%- include("../Partials/Footer.ejs") %>
+    <%#- include("../Partials/Footer.ejs") %>
 
 </body>
 </html>
+
+
+
+
+                                <!-- <div class="card" style="margin: 8px; width: 14rem;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">Player Name: <%#= playerObj.name %>
+                                        </h5>
+                                        <p class="card-text">Player ID: <%#= playerObj.player_id %>
+                                        </p>
+                                        <p class="card-text">Player Email: <%#= playerObj.email %>
+                                        </p>
+                                
+                                        <form action="/esports-players/remove/<%#= playerObj.player_id %>" method="post">
+                                            <button type="submit" class="btn btn-lg btn-block btn-primary mt-auto">Delete</button>
+                                        </form>
+                                        <form action="/esports-players/edit/<%#= playerObj.player_id %>/" method="get">
+                                            <button type="submit" class="btn btn-lg btn-block btn-primary mt-auto">Test</button>
+                                        </form>
+                                
+                                    </div>
+                                </div> -->

@@ -1,9 +1,9 @@
-const navUtil = require('../../../../Utils/NavbarUtilFiller');
-const footerUtil = require('../../../../Utils/FooterUtilFiller');
+const navUtil = require("../../../../Utils/NavbarUtilFiller");
+const footerUtil = require("../../../../Utils/FooterUtilFiller");
 
 module.exports = {
-    url: '/esports-players/add/',
-    method: 'GET',
+    url: "/esports-players/add/",
+    method: "GET",
 
     /**
      *
@@ -11,10 +11,11 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        res.render('esport-player-views/esportsAddPlayer', {
+        res.render("esport-player-views/esportsAddPlayer", {
+            title: "Add Player",
             nav: navUtil().page,
-            page: footerUtil(`esports-players/add/`, this.method, 'Add Player').page,
-            urlType: 'add',
+            footer: footerUtil(`esports-players/add/`, this.method, "Add Player").page,
+            urlType: "add",
             id: req.params.id,
         });
     },

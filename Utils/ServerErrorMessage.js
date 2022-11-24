@@ -1,3 +1,5 @@
+const chalk = require("chalk");
+
 module.exports = (message) => {
-    return `[ERROR] ${message}`;
+    return `${chalk.redBright("[ERROR]")} ${message}`;
 };

@@ -1,19 +1,19 @@
-const fs = require('fs');
-const path = require('path');
-const ServerMessage = require('../Utils/ServerMessage');
-const ServerError = require('../Utils/ServerErrorMessage');
+const fs = require("fs");
+const path = require("path");
+const ServerMessage = require("../Utils/ServerMessage");
+const ServerError = require("../Utils/ServerErrorMessage");
 
 module.exports = (app) => {
     // Gets folders in controller folder
-    const controllersNotInFolder = fs.readdirSync(path.join(__dirname, '../Views/Controllers'));
+    const controllersNotInFolder = fs.readdirSync(path.join(__dirname, "../Views/Controllers"));
 
     for (const controllerfolder of controllersNotInFolder) {
         const controllerMethodFolder = fs.readdirSync(path.join(__dirname, `../Views/Controllers/${controllerfolder}`));
 
         for (const folder of controllerMethodFolder) {
-            const controllerFile = fs.readdirSync(path.join(__dirname, `../Views/Controllers/${controllerfolder}/${folder}`)).filter((file) => file.endsWith('.js'));
+            const controllerFile = fs.readdirSync(path.join(__dirname, `../Views/Controllers/${controllerfolder}/${folder}`)).filter((file) => file.endsWith(".js"));
 
-            console.log(ServerMessage(`Loading [${controllerfolder}]/[${folder}]: ${controllerFile} `));
+            console.log(ServerMessage(`Loading [${controllerfolder}]/[${folder}]: ${controllerFile}\n `));
 
             for (const file of controllerFile) {
                 const controller = require(`../Views/Controllers/${controllerfolder}/${folder}/${file}`);
@@ -31,17 +31,17 @@ module.exports = (app) => {
 };
 
 function runControllers(app, controller, hasValidation) {
-    if (typeof controller === 'undefined') return;
+    if (typeof controller === "undefined") return;
     if (hasValidation) {
         switch (controller.method) {
-            case 'GET':
+            case "GET":
                 app.get(controller.url, [controller.validate, controller.execute]);
                 break;
-            case 'POST':
+            case "POST":
                 app.post(controller.url, [controller.validate, controller.execute]);
                 break;
 
-            case 'PUT':
+            case "PUT":
                 app.put(controller.url, [controller.validate, controller.execute]);
                 break;
 
@@ -51,14 +51,14 @@ function runControllers(app, controller, hasValidation) {
         }
     } else {
         switch (controller.method) {
-            case 'GET':
+            case "GET":
                 app.get(controller.url, controller.execute);
                 break;
-            case 'POST':
+            case "POST":
                 app.post(controller.url, controller.execute);
                 break;
 
-            case 'PUT':
+            case "PUT":
                 app.put(controller.url, controller.execute);
                 break;
 
