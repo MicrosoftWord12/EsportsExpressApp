@@ -1,9 +1,8 @@
 const conn = require("../Connection/Connection");
 
-module.exports = async (data, id) => {
+module.exports = async (data) => {
     return new Promise((resolve, reject) => {
-        // alter game sql
-        conn().query("update game set name = ?, duration = ?, team_size = ? where game_id = ?", [data.title, data.duration, data.team_size, id], (err, result) => {
+        conn().query("insert into game(name, duration, team_size) values(?, ?, ?)", [data.name, data.duration, data.team_size], (err, result) => {
             if (err) {
                 reject(err);
                 return;

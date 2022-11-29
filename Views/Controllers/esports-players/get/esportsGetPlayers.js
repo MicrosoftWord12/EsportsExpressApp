@@ -1,4 +1,4 @@
-const NavbarUtilityFiller = require("../../../../Utils/NavbarUtilFiller");
+const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
 const FooterUtilFiller = require("../../../../Utils/FooterUtilFiller");
 const selectPlayers = require("../../../../DB/Scripts/SelectPlayers");
 
@@ -15,7 +15,7 @@ module.exports = {
         selectPlayers().then((result) => {
             res.render("esport-player-views/esportsPlayers", {
                 title: "Esports Players",
-                nav: NavbarUtilityFiller().page,
+                nav: navbarUtil("Esports Player").page,
                 footer: FooterUtilFiller(`esports-players/add/`, this.method, "Add Player").page,
                 player: result,
                 DBResult: result,

@@ -1,4 +1,4 @@
-const navUtil = require("../../../../Utils/NavbarUtilFiller");
+const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
 const footerUtil = require("../../../../Utils/FooterUtilFiller");
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     async execute(req, res) {
         res.render("esport-player-views/esportsAddPlayer", {
             title: "Add Player",
-            nav: navUtil().page,
+            nav: navbarUtil("Esports Add Player").page,
             footer: footerUtil(`esports-players/add/`, this.method, "Add Player").page,
             urlType: "add",
             id: req.params.id,

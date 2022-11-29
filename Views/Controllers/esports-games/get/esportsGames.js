@@ -1,4 +1,5 @@
-const NavbarUtilFiller = require("../../../../Utils/NavbarUtilFiller");
+const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
+const footerUtil = require("../../../../Utils/FooterUtilFiller");
 const SelectGames = require("../../../../DB/Scripts/SelectGames");
 
 /**
@@ -13,10 +14,10 @@ module.exports = {
     async execute(req, res) {
         SelectGames().then((result) => {
             console.log(result);
-
             res.render("esport-game-views/esportsGames", {
                 title: "Esports Games",
-                nav: NavbarUtilFiller().page,
+                nav: navbarUtil("Esports Games").page,
+                footer: footerUtil("/esports-games/add", "GET", "Add Game").page,
                 game: result,
                 DBResult: result,
             });

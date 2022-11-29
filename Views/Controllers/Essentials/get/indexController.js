@@ -12,7 +12,7 @@ module.exports = {
     async execute(req, res) {
         res.render("index", {
             title: "Home",
-            nav: navbarUtil().page,
+            nav: navbarUtil("Home").page,
             footer: footerUtil(``, this.method, "Null").page,
         });
     },

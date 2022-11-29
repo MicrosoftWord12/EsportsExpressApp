@@ -7,10 +7,11 @@
    <div class="container-fluid">
      <div class="row">
           <% game.forEach(element => { %>
+               <div class="col-md-2">
                  <div class="card" style="margin: auto; margin-top: 12px; width: auto; height: 25rem;">
                       <div class="card-body d-flex flex-column">
                          <div class="card-header text-center" style="margin-bottom: 15px;">
-                              <h5 class="card-title ">Game Title: <%= element.name %></h5>
+                              <h5 class="card-title "><%= element.name %></h5>
                          </div>
                          <p class="card-text">Game Duration: <%= element.duration %></p>
                          <p class="card-text">Game Team Size: <%= element.team_size %></p>
@@ -22,9 +23,12 @@
                          <a href="#" class="btn btn-lg btn-block btn-primary mt-auto">Remove Game</a>
                       </div>
                  </div>
+               </div>
           <% }) %>
      </div>
    </div>
+
+   <%- include("../Partials/Footer.ejs"); %>
 
 </body>
 </html>

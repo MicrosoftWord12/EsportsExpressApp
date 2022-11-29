@@ -1,8 +1,8 @@
-const navbarUtil = require('../../../../Utils/NavbarUtilFiller');
+const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
 
 module.exports = {
-    url: '/esports-games/edit/:id',
-    method: 'GET',
+    url: "/esports-games/edit/:id",
+    method: "GET",
 
     /**
      *
@@ -10,9 +10,9 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        res.render('esport-game-views/esportsEditGame', {
-            title: 'Edit Game',
-            nav: navbarUtil().page,
+        res.render("esport-game-views/esportsEditGame", {
+            title: "Edit Game",
+            nav: navbarUtil(`Editing Game ${req.params.id}`).page,
             id: req.params.id,
         });
     },

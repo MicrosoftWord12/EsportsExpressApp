@@ -1,8 +1,15 @@
-module.exports = (url, methodType, buttonName) => {
+/**
+ *
+ * @param {string} pageUrl
+ * @param {string} methodType
+ * @param {string} buttonName
+ * @returns
+ */
+module.exports = (pageUrl, methodType, buttonName) => {
     return {
         page: {
-            url: url,
-            methodType: methodType,
+            url: pageUrl,
+            method: methodType,
             nameOfButton: buttonName,
         },
     };
