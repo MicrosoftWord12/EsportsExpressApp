@@ -1,0 +1,17 @@
+<% getAvailableGames.forEach(game => { %>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" style="width: 20px; height: 20px;">
+                        </div>
+                    </div>
+                    <label type="text" class="form-control" name="tickedGame<%= game.name %>" placeholder="Some text"><%= game.name %></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% }) %>

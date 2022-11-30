@@ -12,7 +12,7 @@ module.exports = {
     method: "GET",
 
     async execute(req, res) {
-        SelectGames().then((result) => {
+        SelectGames.getGames().then((result) => {
             console.log(result);
             res.render("esport-game-views/esportsGames", {
                 title: "Esports Games",

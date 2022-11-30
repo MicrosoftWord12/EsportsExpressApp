@@ -17,22 +17,32 @@
 
 
 
-<section class="p-4 text-center footer fixed-bottom">
+<!-- <section class="p-4 text-center footer fixed-bottom">
   <section class="">
     <footer class="text-center text-white">
       <div class="container p-4 pb-0">
         <section class="">
           <p class="d-flex justify-content-center align-items-center">
-            <form action="<%= footer.url %>" method="<%= footer.method %>">
+            <form action="<#%= footer.url %>" method="<#%= footer.method %>">
               <button type="submit" class="btn btn-outline-light btn-rounded m-3">
-                <%= footer.nameOfButton %>
+                <#%= footer.nameOfButton %>
               </button>
             </form>
           </p>
-        </section>
-      </div>
+        </section> -->
+      <!-- </div> -->
 
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:<a class="text-white" href="#">Ur mums hot.com</a></div>
+      <!-- <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:<a class="text-white" href="#">Ur mums hot.com</a></div> -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          <form action="<%= footer.url %>" method="<%= footer.method %>">
+            <button type="submit" class="btn btn-outline-light btn-rounded m-3">
+              <%= footer.nameOfButton %>
+            </button>
+          </form>
+
+
+          <!-- <button class="btn btn-primary">Add Player</button> -->
+      </div>
     </footer>
   </section>
 </section>

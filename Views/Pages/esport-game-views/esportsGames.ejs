@@ -17,10 +17,28 @@
                          <p class="card-text">Game Team Size: <%= element.team_size %></p>
                          <p class="card-text">Game ID: <%= element.game_id %></p>
                  
-                      <!-- TODO: GET THE ROUTES FOR THE BUTTONS -->
-                         <a href="#" class="btn btn-lg btn-block btn-primary mt-auto" style="margin-top: 15px;">View Players</a>
-                         <a href="/esports-games/edit/<%= element.game_id %>" class="btn btn-lg btn-block btn-primary mt-auto">Edit Game</a>
-                         <a href="#" class="btn btn-lg btn-block btn-primary mt-auto">Remove Game</a>
+                         <!-- <a href="/esports-games/edit/<%= element.game_id %>" class="btn btn-lg btn-block btn-primary mt-auto">Edit Game</a> -->
+                         <!-- <a href="#" class="btn btn-lg btn-block btn-primary mt-auto">Remove Game</a> -->
+
+                         <!-- TODO: FIX ROUTE -->
+                         <form action="" method="get">
+                              <button href="#" class="btn btn-lg btn-block btn-primary" style="margin-top: 10px;">View Players</button>
+                         </form>
+
+                         <form action="/esports-games/edit/<%= element.game_id %>" method="get">
+                              <button type="submit" class="btn btn-lg btn-block btn-primary" style="margin-top: 10px;">Edit Game</button>
+                         </form>
+
+                         <!-- TODO: FIX ROUTE HERE -->
+                         <form action="/esports-games/remove/<%= element.game_id %>/" method="post">
+                              <button type="submit" class="btn btn-lg btn-block btn-primary" style="margin-top: 10px;">Remove Game</button>
+                         </form>
+
+
+
+
+
+
                       </div>
                  </div>
                </div>
