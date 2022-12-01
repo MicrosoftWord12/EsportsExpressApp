@@ -1,8 +1,8 @@
-const alterGame = require('../../../../DB/Scripts/AlterGame');
+const alterGame = require("../../../../DB/Scripts/AlterGame");
 
 module.exports = {
-    url: '/esports-games/edit/:id',
-    method: 'POST',
+    url: "/esports-games/edit/:id",
+    method: "POST",
 
     /**
      *
@@ -10,10 +10,10 @@ module.exports = {
     async execute(req, res) {
         const { id } = req.params;
 
-        console.log(req.body);
+        // console.log(req.body);
 
         alterGame(req.body, id).then((result) => {
-            res.redirect(301, '/esports-games');
+            res.redirect(301, "/esports-games");
         });
     },
 };

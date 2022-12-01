@@ -1,4 +1,4 @@
-const games = require("../../../../DB/Scripts/SelectGames");
+const { getGames } = require("../../../../DB/Scripts/SelectGames");
 const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
 
 module.exports = {
@@ -11,8 +11,8 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        games.getGames().then((result) => {
-            console.log(result);
+        getGames().then((result) => {
+            // console.log(result);
             res.render("esport-player-views/esportsSelectGames", {
                 title: "Select Games",
                 nav: navbarUtil("Select Games").page,

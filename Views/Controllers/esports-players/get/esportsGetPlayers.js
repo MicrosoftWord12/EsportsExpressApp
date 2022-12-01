@@ -19,6 +19,7 @@ module.exports = {
                 footer: FooterUtilFiller(`esports-players/add/`, this.method, "Add Player").page,
                 player: result,
                 DBResult: result,
+                hidden: false,
             });
         });
     },

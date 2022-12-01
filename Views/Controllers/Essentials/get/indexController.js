@@ -13,7 +13,8 @@ module.exports = {
         res.render("index", {
             title: "Home",
             nav: navbarUtil("Home").page,
-            footer: footerUtil(``, this.method, "Null").page,
+            // footer: footerUtil(``, this.method, "Null").page,
+            // hidden: false,
         });
     },
 };

@@ -9,6 +9,7 @@ module.exports = {
             title: "Add Game",
             nav: navbarUtil("Add Game").page,
             footer: footerUtil(`/esports-games/add`, this.method, "Add Game").page,
+            hidden: false,
         });
     },
 };

@@ -13,13 +13,14 @@ module.exports = {
 
     async execute(req, res) {
         SelectGames.getGames().then((result) => {
-            console.log(result);
+            // console.log(result);
             res.render("esport-game-views/esportsGames", {
                 title: "Esports Games",
                 nav: navbarUtil("Esports Games").page,
                 footer: footerUtil("/esports-games/add", "GET", "Add Game").page,
                 game: result,
                 DBResult: result,
+                hidden: false,
             });
         });
     },
