@@ -1,8 +1,9 @@
-const insertPlayer = require('../../../../DB/Scripts/InsertPlayers');
-const { selectPlayerByEmail } = require('../../../../DB/Scripts/SelectPlayers');
+const insertPlayer = require("../../../../DB/Scripts/InsertPlayers");
+const { selectPlayerByEmail } = require("../../../../DB/Scripts/SelectPlayers");
+const conn = require("../../../../DB/Connection/Connection");
 module.exports = {
-    url: '/esports-players/add',
-    method: 'POST',
+    url: "/esports-players/add",
+    method: "POST",
 
     /**
      *
@@ -12,11 +13,9 @@ module.exports = {
     async execute(req, res) {
         const data = req.body;
         // const { email } = req.body;
-        console.log(`Data LOL`);
         insertPlayer(data).then((result) => {
-            selectPlayerByEmail(data.email, (err, result) => {
-                console.log(result);
-                res.redirect(302, `/esports-games/add/getAvailableGames/${result[0].player_id}`);
+            selectPlayerByEmail(data.email).then((newResult) => {
+                res.redirect(302, `/esports-games/add/getAvailableGames/${newResult[0].player_id}`);
             });
         });
     },

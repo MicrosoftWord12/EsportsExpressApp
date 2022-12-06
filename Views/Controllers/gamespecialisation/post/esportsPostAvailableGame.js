@@ -1,6 +1,9 @@
+const insertGameSpec = require("../../../../DB/Scripts/InsertGameSpec");
+const conn = require("../../../../DB/Connection/Connection");
+
 module.exports = {
-    url: '/esports-games/add/getAvailableGames/:id',
-    method: 'POST',
+    url: "/esports-games/add/getAvailableGames/:id",
+    method: "POST",
 
     /**
      *
@@ -8,8 +11,10 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        console.log(req.body);
+        const { id } = req.params;
 
-        const data = req.body;
+        insertGameSpec(req.body, id).then((result) => {
+            res.redirect(302, `/esports-players`);
+        });
     },
 };

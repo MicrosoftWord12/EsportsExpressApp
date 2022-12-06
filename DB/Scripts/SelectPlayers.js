@@ -1,9 +1,9 @@
-const conn = require('../Connection/Connection');
+const conn = require("../Connection/Connection");
 
 module.exports = {
     async selectAllPlayers() {
         return new Promise((resolve, reject) => {
-            conn().query('select * from player', (err, result) => {
+            conn().query("select * from player", (err, result) => {
                 if (err) {
                     reject(err);
                     return;
@@ -15,7 +15,20 @@ module.exports = {
 
     async selectPlayerByEmail(email) {
         return new Promise((resolve, reject) => {
-            conn().query('select player_id from player where email = ?', [email], (err, result) => {
+            conn().query("select player_id from player where email = ?", [email], (err, result) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve(result);
+            });
+        });
+    },
+
+    async selectPlayerById(id) {
+        return new Promise((resolve, reject) => {
+            conn().query("select * from player where player_id = ?", [id], (err, result) => {
                 if (err) {
                     reject(err);
                     return;

@@ -1,10 +1,10 @@
-const { getGames } = require('../../../../DB/Scripts/SelectGames');
-const selectPlayers = require('../../../../DB/Scripts/SelectPlayers');
-const navbarUtil = require('../../../../Utils/NavbarUtilFiller');
+const { getGames } = require("../../../../DB/Scripts/SelectGames");
+const { selectPlayerById } = require("../../../../DB/Scripts/SelectPlayers");
+const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
 
 module.exports = {
-    url: '/esports-games/add/getAvailableGames/:id',
-    method: 'GET',
+    url: "/esports-games/add/getAvailableGames/:id",
+    method: "GET",
 
     /**
      *
@@ -13,10 +13,10 @@ module.exports = {
      */
     async execute(req, res) {
         getGames().then((game) => {
-            selectPlayers().then((players) => {
-                res.render('esport-player-views/esportsSelectGames', {
-                    title: 'Select Games',
-                    nav: navbarUtil('Select Games').page,
+            selectPlayerById(req.params.id).then((players) => {
+                res.render("esport-player-views/esportsSelectGames", {
+                    title: "Select Games",
+                    nav: navbarUtil("Select Games").page,
                     getAvailableGames: game,
                     getPlayers: players,
                     id: req.params.id,

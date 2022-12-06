@@ -15,7 +15,7 @@ module.exports = {
 
         AlterPlayer(req.body, id).then((result) => {
             console.log(result);
-            res.redirect(301, "/esports-players");
+            res.redirect("/esports-players");
         });
     },
 };

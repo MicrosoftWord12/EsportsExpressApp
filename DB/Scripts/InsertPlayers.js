@@ -7,7 +7,6 @@ module.exports = async (data) => {
                 reject(err);
                 return;
             }
-            console.log(data);
             resolve(result);
         });
     });

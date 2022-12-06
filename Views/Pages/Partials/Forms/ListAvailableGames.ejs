@@ -1,24 +1,19 @@
-
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col">
-                <form action="/esports-games/add/getAvailableGames/<%= id %>" method="post">
-                    <% getAvailableGames.forEach(game => { %>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="checkbox" style="width: 20px; height: 20px;" name="tickedGame<%= game.name %>">
-                                    <!-- TODO: Get Player and Game IDs Then make SQL query saying where email = email etc -->
-                                    <!-- FIXME: THIS IS IN THE WRONG FILE -->
-                                    <input type="text" name="<%= getPlayers %>" hidden>
-                                    <input type="text" name="<%= game.game_id %>" hidden>
-                                </div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <form action="/esports-games/add/getAvailableGames/<%= id %>" method="post">
+                <% getAvailableGames.forEach(game => { %>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" style="width: 20px; height: 20px;" name="<%= game.name %>">
                             </div>
-                            <label type="text" class="form-control" placeholder="Some text"><%= game.name %></label>
                         </div>
-                    <% }) %>
-                    <button type="submit" class="btn btn-primary">Submit Form</button>
-                </form>
-            </div>
+                        <label type="text" class="form-control" placeholder="Some text"><%= game.name %></label>
+                    </div>
+                <% }) %>
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+            </form>
         </div>
     </div>
+</div>
