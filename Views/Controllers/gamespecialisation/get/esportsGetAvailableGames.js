@@ -1,9 +1,10 @@
-const { getGames } = require("../../../../DB/Scripts/SelectGames");
-const navbarUtil = require("../../../../Utils/NavbarUtilFiller");
+const { getGames } = require('../../../../DB/Scripts/SelectGames');
+const selectPlayers = require('../../../../DB/Scripts/SelectPlayers');
+const navbarUtil = require('../../../../Utils/NavbarUtilFiller');
 
 module.exports = {
-    url: "/esports-players/add/getAvailableGames",
-    method: "GET",
+    url: '/esports-games/add/getAvailableGames/:id',
+    method: 'GET',
 
     /**
      *
@@ -11,12 +12,15 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        getGames().then((result) => {
-            // console.log(result);
-            res.render("esport-player-views/esportsSelectGames", {
-                title: "Select Games",
-                nav: navbarUtil("Select Games").page,
-                getAvailableGames: result,
+        getGames().then((game) => {
+            selectPlayers().then((players) => {
+                res.render('esport-player-views/esportsSelectGames', {
+                    title: 'Select Games',
+                    nav: navbarUtil('Select Games').page,
+                    getAvailableGames: game,
+                    getPlayers: players,
+                    id: req.params.id,
+                });
             });
         });
     },

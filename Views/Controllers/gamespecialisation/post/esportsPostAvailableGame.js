@@ -1,6 +1,6 @@
 module.exports = {
-    url: "/esports-players/add/getAvailableGames",
-    method: "POST",
+    url: '/esports-games/add/getAvailableGames/:id',
+    method: 'POST',
 
     /**
      *
@@ -9,6 +9,7 @@ module.exports = {
      */
     async execute(req, res) {
         console.log(req.body);
+
         const data = req.body;
     },
 };
