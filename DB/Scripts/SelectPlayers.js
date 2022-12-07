@@ -37,4 +37,22 @@ module.exports = {
             });
         });
     },
+
+    async selectPlayersByGameID(gameId) {
+        return new Promise((resolve, reject) => {
+            const sql = `select player.name as "playerName", player.player_id  as "playerId", player.email as "playerEmail" from player
+                        inner join gamespecialisation using(player_id)
+                        inner join game using(game_id)
+                        where game_id = ?
+                        `;
+            conn().query(sql, [gameId], (err, result) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve(result);
+            });
+        });
+    },
 };

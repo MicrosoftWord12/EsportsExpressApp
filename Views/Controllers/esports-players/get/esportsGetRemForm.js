@@ -8,6 +8,6 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        console.log("GET REM FORM");
+        console.log("test");
     },
 };

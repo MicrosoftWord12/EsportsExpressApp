@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <% player.forEach(playerObj => { %>
+            <div class="col-md-2">
+                <div class="card" style="margin: auto; margin-top: 12px; width: auto; height: 19rem;">
+                    <div class="card-body d-flex flex-column">
+                        <div class="card-header text-center" style="margin-bottom: 15px;">
+                            <h5 class="card-title"><%= playerObj.playerName %></h5>
+                        </div>
+                        <p class="card-text">ID: <%= playerObj.playerId %></p>
+                        <p class="card-text">Email: <%= playerObj.playerEmail %></p>
+
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>

@@ -1,8 +1,8 @@
-const DeletePlayer = require('../../../../DB/Scripts/DeletePlayer');
+const DeletePlayer = require("../../../../DB/Scripts/DeletePlayer");
 
 module.exports = {
-    url: '/esports-players/remove/:id',
-    method: 'POST',
+    url: "/esports-players/remove/:id",
+    method: "POST",
 
     /**
      *
@@ -11,8 +11,8 @@ module.exports = {
      */
     async execute(req, res) {
         DeletePlayer(req.params.id).then((result) => {
-            console.log(result);
-            res.redirect(301, '/esports-players');
+            // console.log(result);
+            res.redirect(301, "/esports-players");
         });
     },
 };

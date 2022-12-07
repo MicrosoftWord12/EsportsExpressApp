@@ -4,7 +4,7 @@ module.exports = {
     url: "/esports-games/add",
     method: "GET",
 
-    async execute(req, res) {
+    async execute(req, res, next) {
         res.render("esport-game-views/esportsAddGame", {
             title: "Add Game",
             nav: navbarUtil("Add Game").page,

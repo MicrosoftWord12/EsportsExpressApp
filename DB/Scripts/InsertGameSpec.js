@@ -1,4 +1,5 @@
 const conn = require("../Connection/Connection");
+const ServerErrorMessage = require("../../Utils/ServerErrorMessage");
 
 module.exports = (data, id) => {
     return new Promise((resolve, reject) => {
@@ -8,10 +9,9 @@ module.exports = (data, id) => {
             // console.log(`${key}: ${value}`);
             conn().query("select game_id from game where name = ?", [key], (err, result) => {
                 if (err) {
-                    console.log(err);
+                    ServerErrorMessage(err);
                 } else {
                     gameId = result[0].game_id;
-                    // console.log(gameId);
                     conn().query("insert into gamespecialisation (player_id, game_id) values (?, ?)", [id, gameId], (err, result) => {
                         if (err) {
                             reject(err);

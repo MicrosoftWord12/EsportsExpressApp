@@ -10,11 +10,11 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        const { id } = req.params;
-        console.log(req.body);
+        // const { id } = req.params;
+        // console.log(req.body);
 
         AlterPlayer(req.body, id).then((result) => {
-            console.log(result);
+            // console.log(result);
             res.redirect("/esports-players");
         });
     },

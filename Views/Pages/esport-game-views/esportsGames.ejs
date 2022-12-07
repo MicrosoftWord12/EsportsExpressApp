@@ -16,13 +16,10 @@
                          <p class="card-text">Game Duration: <%= element.duration %></p>
                          <p class="card-text">Game Team Size: <%= element.team_size %></p>
                          <p class="card-text">Game ID: <%= element.game_id %></p>
-                 
-                         <!-- <a href="/esports-games/edit/<%= element.game_id %>" class="btn btn-lg btn-block btn-primary mt-auto">Edit Game</a> -->
-                         <!-- <a href="#" class="btn btn-lg btn-block btn-primary mt-auto">Remove Game</a> -->
 
                          <!-- TODO: FIX ROUTE -->
-                         <form action="/esports-games/add/getAvailableGames/<%= element.game_id %>" method="get">
-                              <button href="#" class="btn btn-lg btn-block btn-primary" style="margin-top: 10px;">View Players</button>
+                         <form action="/esports-games/view/<%= element.game_id %>/" method="get">
+                              <button type="submit" class="btn btn-lg btn-block btn-primary" style="margin-top: 10px;">View Players</button>
                          </form>
 
                          <form action="/esports-games/edit/<%= element.game_id %>" method="get">

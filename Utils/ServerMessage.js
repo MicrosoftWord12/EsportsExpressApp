@@ -1,5 +1,5 @@
 const { greenBright } = require("chalk");
 
 module.exports = (message) => {
-    return `${greenBright("[SERVER]")} ${message}`;
+    return console.log(`${greenBright("[SERVER]")} ${message}`);
 };

@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="/esports-players/add/" method="post">
+    <form action="/esports-players/add/" method="post" onsubmit="clientValidation()">
         <div class="form-group">
             <label for="exampleInputPassword1">Name</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="name" placeholder="Player Name">
@@ -8,6 +8,6 @@
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submitID" class="btn btn-primary">Submit</button>
     </form>
 </div>
