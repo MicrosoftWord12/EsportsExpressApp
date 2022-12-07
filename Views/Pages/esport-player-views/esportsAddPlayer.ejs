@@ -2,11 +2,58 @@
 <html lang="en">
 <%- include("../Partials/Head.ejs"); %>
 
-    <body>
+    <body onload="load()">
+
+       
         <%- include("../Partials/Navbar.ejs"); %>
+
+        <div id="alertID" class="alert alert-success" role="alert">
+            A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
 
         <%- include("../Partials/Forms/CreatePlayer.ejs"); %>
 
 
+        <script>
+            // $(function(){
+            //     function load(){
+            //         $("#alertID").hide()   
+            //     }
+
+            // })
+            function load(){
+                let alertField = document.getElementById("alertID");
+    
+                alertField.hidden = true;
+            }
+
+            // window.onload((e) => {
+            //     let alertField = document.getElementById("alertID");
+
+            //     alertField.hidden = true;
+            // })
+
+            
+            
+
+            function clientValidation() {
+                $('#submitID').on("click", (e) => {
+                    let name = $("#exampleInputPassword1").val();
+                    let email = $("#exampleInputEmail1").val();
+    
+                    if(name.length < 1 || email.length < 1) {
+                        e.preventDefault();
+                        $("#alertID").show();
+    
+                        setTimeout(() => {
+                            $("#alertID").hide();
+                        }, 3000);
+                    }
+                })
+            }
+
+        </script>
+
     </body>
+
 </html>
