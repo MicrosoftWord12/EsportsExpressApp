@@ -7,49 +7,45 @@
        
         <%- include("../Partials/Navbar.ejs"); %>
 
-        <div id="alertID" class="alert alert-success" role="alert">
-            A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        <div class="container">
+            <div id="alertID" class="alert alert-danger text-center h2" role="alert">
+                Please Fill All The Fields
+            </div>
         </div>
 
         <%- include("../Partials/Forms/CreatePlayer.ejs"); %>
 
 
         <script>
-            // $(function(){
-            //     function load(){
-            //         $("#alertID").hide()   
-            //     }
-
-            // })
             function load(){
                 let alertField = document.getElementById("alertID");
-    
                 alertField.hidden = true;
-            }
-
-            // window.onload((e) => {
-            //     let alertField = document.getElementById("alertID");
-
-            //     alertField.hidden = true;
-            // })
-
-            
-            
+            }       
 
             function clientValidation() {
-                $('#submitID').on("click", (e) => {
-                    let name = $("#exampleInputPassword1").val();
-                    let email = $("#exampleInputEmail1").val();
-    
-                    if(name.length < 1 || email.length < 1) {
-                        e.preventDefault();
-                        $("#alertID").show();
-    
-                        setTimeout(() => {
-                            $("#alertID").hide();
-                        }, 3000);
-                    }
-                })
+                let name = document.getElementById("exampleInputPassword1").value;
+                let email = document.getElementById("exampleInputEmail1").value;
+
+                let alertField = document.getElementById("alertID");
+                
+                if(name == "" || email == "") {
+                    alertField.hidden = false;
+                    alertField.innerText = "Please fill all the fields";
+
+                    setInterval(() => {
+                        alertField.hidden = true;
+                    }, 2000);
+                    return false;
+                }else{
+                    alertField.className = "alert alert-success text-center h2";
+                    alertField.innerText = "Player Added Successfully";
+                    alertField.hidden = false;
+
+                    setInterval(() => {
+                        alertField.hidden = true;
+                    }, 2000);
+                    return true;
+                }
             }
 
         </script>

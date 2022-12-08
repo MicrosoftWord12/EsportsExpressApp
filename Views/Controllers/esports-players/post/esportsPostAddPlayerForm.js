@@ -15,7 +15,9 @@ module.exports = {
         // const { email } = req.body;
         insertPlayer(data).then((result) => {
             selectPlayerByEmail(data.email).then((newResult) => {
-                res.redirect(302, `/esports-games/add/getAvailableGames/${newResult[0].player_id}`);
+                setInterval(() => {
+                    res.redirect(302, `/esports-games/add/getAvailableGames/${newResult[0].player_id}`);
+                }, 2000);
             });
         });
     },
