@@ -1,0 +1,33 @@
+<script>
+    function load(){
+        let alertField = document.getElementById("alertID");
+        alertField.hidden = true;
+    }       
+
+    function clientValidation() {
+        let name = document.getElementById("exampleInputPassword1").value;
+        let email = document.getElementById("exampleInputEmail1").value;
+
+        let alertField = document.getElementById("alertID");
+        
+        if(name == "" || email == "") {
+            alertField.hidden = false;
+            alertField.innerText = "Please fill all the fields";
+
+            setInterval(() => {
+                alertField.hidden = true;
+            }, 2000);
+            return false;
+        }else{
+            alertField.className = "alert alert-success text-center h2";
+            alertField.innerText = "Player Added Successfully";
+            alertField.hidden = false;
+
+            setInterval(() => {
+                alertField.hidden = true;
+            }, 2000);
+
+            return true;
+        }
+    }
+</script>

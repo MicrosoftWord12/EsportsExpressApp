@@ -1,6 +1,6 @@
 <div class="container">
     <div class="justify-content">
-        <form action="/esports-players/edit/<%= id %>" method="post">
+        <form action="/esports-players/edit/<%= id %>" method="post" onsubmit="return clientValidation()">
             <div class="form-group">
                 <label for="test" name="<% id %>"></label>
             </div>

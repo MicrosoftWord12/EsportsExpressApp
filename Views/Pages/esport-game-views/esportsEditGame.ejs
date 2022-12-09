@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../Partials/Head.ejs"); %>
-<body>
+<body onload="load()">
     <%- include("../Partials/Navbar.ejs"); %>
 
     <%- include("../Partials/Forms/EditGame.ejs") %>
+
+    <%- include("../Partials/Scripts/AlertGameJS.ejs"); %>
 
 
 </body>

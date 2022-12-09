@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../Partials/Head.ejs"); %>
-<body>
+<body onload="load()">
     <%- include("../Partials/Navbar.ejs"); %>
-    
-    <div class="container">
-      <div class="justify-content-center">
 
-          <%- include("../Partials/Forms/EditPlayer.ejs"); %>
+    <%- include("../Partials/Alert.ejs"); %>
 
-      </div>
-    </div>
+    <%- include("../Partials/Forms/EditPlayer.ejs"); %>
 
-
+    <%- include("../Partials/Scripts/AlertPlayerJS.ejs"); %>
 </body>
 </html>

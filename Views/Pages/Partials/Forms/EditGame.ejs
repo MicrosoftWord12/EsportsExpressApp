@@ -1,24 +1,26 @@
 <div class="container">
-    <form action="/esports-games/edit/<%= id %>" method="post">
-    
-        <div class="form-group">
-            <label for="test" name="<%= id %>"></label>
-        </div>
+    <div class="justify-content-center">
+        <form action="/esports-games/edit/<%= id %>" method="post" onsubmit="return clientValidation()">
         
-        <div class="form-group">
-            <label for="exampleInputPassword1">Game Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="title" placeholder="Game Name">
-        </div>
-    
-        <div class="form-group">
-            <label for="exampleInputEmail1">Game Duration</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="duration" placeholder="Game Duration">
-        </div>
-    
-        <div class="form-group">
-            <label for="exampleNumberInput">Game Team Size</label>
-            <input type="number" class="form-control" id="exampleCheck1" name="team_size" placeholder="Game Team Size">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+            <div class="form-group">
+                <label for="test" name="<%= id %>"></label>
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputPassword1">Game Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="title" placeholder="Game Name">
+            </div>
+        
+            <div class="form-group">
+                <label for="exampleInputEmail1">Game Duration</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="duration" placeholder="Game Duration">
+            </div>
+        
+            <div class="form-group">
+                <label for="exampleNumberInput">Game Team Size</label>
+                <input type="number" class="form-control" id="exampleInputNumber" name="team_size" placeholder="Game Team Size">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>

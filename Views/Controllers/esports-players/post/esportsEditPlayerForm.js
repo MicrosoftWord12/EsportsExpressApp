@@ -1,8 +1,8 @@
-const AlterPlayer = require("../../../../DB/Scripts/AlterPlayer");
+const AlterPlayer = require('../../../../DB/Scripts/AlterPlayer');
 
 module.exports = {
-    url: "/esports-players/edit/:id",
-    method: "POST",
+    url: '/esports-players/edit/:id',
+    method: 'POST',
 
     /**
      *
@@ -10,12 +10,12 @@ module.exports = {
      * @param {import("express").Response} res
      */
     async execute(req, res) {
-        // const { id } = req.params;
+        const { id } = req.params;
         // console.log(req.body);
 
         AlterPlayer(req.body, id).then((result) => {
             // console.log(result);
-            res.redirect("/esports-players");
+            res.redirect('/esports-players');
         });
     },
 };
