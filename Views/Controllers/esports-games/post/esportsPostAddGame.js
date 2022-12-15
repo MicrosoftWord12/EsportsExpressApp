@@ -1,10 +1,10 @@
-const insertGame = require("../../../../DB/Scripts/InsertGame");
-const serverErrorMessage = require("../../../../Utils/ServerErrorMessage");
-const serverMessage = require("../../../../Utils/ServerMessage");
+const insertGame = require('../../../../DB/Scripts/InsertGame');
+const serverErrorMessage = require('../../../../Utils/ServerErrorMessage');
+const serverMessage = require('../../../../Utils/ServerMessage');
 
 module.exports = {
-    url: "/esports-games/add",
-    method: "POST",
+    url: '/esports-games/add',
+    method: 'POST',
 
     /**
      *
@@ -24,6 +24,8 @@ module.exports = {
         // } else {
         //     next();
         // }
+
+        next();
     },
 
     /**
@@ -34,7 +36,7 @@ module.exports = {
     async execute(req, res) {
         insertGame(req.body).then((result) => {
             // serverMessage(`Game Added: ${result}`);
-            res.redirect(301, "/esports-games");
+            res.redirect(301, '/esports-games');
         });
     },
 };
