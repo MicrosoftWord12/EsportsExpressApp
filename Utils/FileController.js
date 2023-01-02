@@ -16,6 +16,7 @@ module.exports = (app) => {
 			for (const file of controllerFile) {
 				const controller = require(`../Views/Controllers/${controllerfolder}/${folder}/${file}`);
 				// TODO: Add support for multiple controllers in one file - DONE
+				if (controller.url == '*') continue;
 				if (controller.execute && controller.url && controller.method) {
 					if (controller.validate) {
 						runControllers(app, controller, true);
@@ -26,6 +27,12 @@ module.exports = (app) => {
 			}
 		}
 	}
+
+	app.get('*', (req, res) => {
+		res.render('Essentials/error', {
+			title: 'Error 404',
+		});
+	});
 };
 
 function runControllers(app, controller, hasValidation) {
